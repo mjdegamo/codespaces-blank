@@ -1,0 +1,55 @@
+<div class="my-20">
+    <div class="text-center">
+        <h1 class="text-4xl font-semibold mb-4">Contact</h1>
+        <p class="text-lg mb-14">We are here to help.</p>
+    </div>
+    <div class="flex">
+        <div class="flex-1">
+            <h1 class="text-3xl font-semibold mb-4">Contact Stablo</h1>
+            <p>Have something to say? We are here to help. Fill <br> up the form or send email or call phone.</p>
+            <br>
+            <div class="flex items-center gap-2">
+                <ng-icon name="ionLocationOutline"></ng-icon>
+                <span>1734 Sanfransico, CA 93063</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <ng-icon name="ionMailOutline"></ng-icon>
+                <span>{{"hello@stablotemplate.com"}}</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <ng-icon name="ionCallOutline"></ng-icon>
+                <span>+1 (987) 4587 899</span>
+            </div>
+        </div>
+        <form [formGroup]="contactForm" (submit)="submitForm()" class="flex flex-1 flex-col text-lg gap-5">
+            <div>
+                <input type="text" formControlName="fullName" class="border py-2 px-3 rounded-md w-full"
+                    [ngClass]="isFormControlValid(contactForm.controls.fullName) ? 'border-red-500':'border-gray-500'"
+                    placeholder="Full Name"><br>
+
+                <span class="text-sm text-red-500" *ngIf="isFormControlValid(contactForm.controls.fullName)">Fullname is
+                    required</span>
+            </div>
+            <div>
+                <input type="email" formControlName="email" class="border border-gray-500 py-2 px-3 rounded-md w-full"
+                    [ngClass]="isFormControlValid(contactForm.controls.email) ? 'border-red-500':'border-gray-500'"
+                    placeholder="Email"><br>
+
+                <span class="text-sm text-red-500" *ngIf="isFormControlValid(contactForm.controls.email)">Enter your
+                    valid email</span>
+            </div>
+            <div>
+                <textarea type="text" formControlName="message"
+                    [ngClass]="isFormControlValid(contactForm.controls.message) ? 'border-red-500':'border-gray-500'"
+                    class="border border-gray-500 py-2 px-3 rounded-md w-full" placeholder="Your Message"
+                    rows="5"></textarea>
+
+                <span class="text-sm text-red-500" *ngIf="isFormControlValid(contactForm.controls.message)">Enter your
+                    message</span>
+            </div>
+            <button class="text-white bg-black rounded-md py-4 font-semibold"
+                [ngClass]="contactForm.invalid ? 'cursor-not-allowed' : ''" [disabled]="contactForm.invalid">Send
+                Message</button>
+        </form>
+    </div>
+</div>

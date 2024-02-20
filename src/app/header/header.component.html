@@ -1,0 +1,7 @@
+<div class="flex justify-center items-center gap-8 my-7 ml-16 text-gray-800">
+    <a [routerLink]="nav === 'home' ? '' : nav" routerLinkActive="font-semibold" [routerLinkActiveOptions]="{ exact: true }" *ngFor="let nav of navList">
+        <span *ngIf="nav; else logo">{{ nav | titlecase }}</span>
+    </a>
+</div>
+
+<ng-template #logo><img class="" [src]="logoLink" alt=""></ng-template>

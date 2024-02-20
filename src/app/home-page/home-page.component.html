@@ -1,0 +1,8 @@
+<div class="flex gap-10" *ngFor="let blog of blogs; let i = index">
+    <div *ngFor="let bl of blog" class="w-[30rem] flex mb-8">
+        <app-blog-card [bl]="bl"></app-blog-card>
+    </div>
+</div>
+<div class="flex justify-center my-5">
+    <button routerLink="/archive" class="text-sm border border-gray-800 text-gray-800 py-2 px-3 rounded-md">View all Posts</button>
+</div>

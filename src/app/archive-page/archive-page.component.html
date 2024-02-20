@@ -1,0 +1,27 @@
+<div class="my-20">
+    <div class="text-center mb-14">
+        <h1 class="text-4xl font-semibold mb-4">Archive</h1>
+        <p *ngIf="blogs.length; else empty" class="text-lg">See all posts we have ever written.</p>
+    </div>
+    <div class="flex gap-10" *ngFor="let blog of blogs; let i = index">
+        <div *ngFor="let bl of blog" class="w-[30rem] flex mb-8">
+            <app-blog-card [bl]="bl"></app-blog-card>
+        </div>
+    </div>
+    <div class="flex items-center justify-center text-sm">
+        <div class="border-l border-t border-b border-gray-500 rounded-l-md">
+            <button class="py-2 px-4"
+                [ngClass]="page === 1 ? 'cursor-not-allowed' : 'hover:cursor-pointer hover:bg-gray-200'"
+                (click)="previous()" [disabled]="page === 1">Previous</button>
+        </div>
+        <div class="border border-gray-500 rounded-r-md">
+            <button class="py-2 px-4"
+                [ngClass]="!blogs.length ? 'cursor-not-allowed' : 'hover:cursor-pointer hover:bg-gray-200'"
+                (click)="next()" [disabled]="!blogs.length">Next</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #empty>
+    <p>Nothing to see in this page.</p>
+</ng-template>

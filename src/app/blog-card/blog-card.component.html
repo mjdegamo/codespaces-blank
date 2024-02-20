@@ -1,0 +1,10 @@
+<img class="mb-2 h-72 object-cover w-full transition rounded-lg hover:cursor-pointer hover:scale-105"
+    [src]="bl.imageLink" alt="">
+<div *ngFor="let cat of bl.category" class="text-sm text-blue-600 font-semibold">{{ cat | uppercase
+    }}</div>
+<span class="font-semibold text-lg">{{ bl.title }}</span>
+<div class="flex gap-3 text-gray-500 text-sm">
+    <span>{{ bl.author | titlecase }}</span>
+    <span>•</span>
+    <span>{{ bl.datePosted | date:'longDate' }}</span>
+</div>
